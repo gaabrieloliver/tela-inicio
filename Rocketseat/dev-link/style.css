@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*  com isso ele mantém o width, e qualquer preenchimento interno */
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg.jpg);
+  background-repeat: no-repeat;  /* não repetir a img 
+  background-position: top center; /* centro é o meio da img 
+  background-size: cover; /* cobre todo o espaço visível 
+  */
+
+  /* colocamos todas as informações a cima em apenas uma propriedade, é conhecida por short hand ou atalho
+  background: image repeat position/size ---- */ 
+  background: url(./assets/bg-mobile.jpg.jpg) no-repeat top center/cover;
+
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto auto auto; /* em cima e em baixo, margin automático */
+  
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  padding: 8px;  
+}
+
+ul li {
+  text-align: center;
+  border: 1px solid red;
+}
+
