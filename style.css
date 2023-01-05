@@ -92,10 +92,17 @@ body * {
   
   /* propriedades liberadas por causa do absolute */
   top: 50%;
-  right: 0;
+  left: 0;
   z-index: 1; /* escolhe o andar que ele vai ficar */
   transform: translateY(-50%);
 }
+
+.light #switch button {
+  right: 0;
+  left: initial; /* volta pra sua posição inicial, ou seja, vai tirar o valor do left que está no  dark */
+  
+}
+
 
 #switch span {
   display: block;
