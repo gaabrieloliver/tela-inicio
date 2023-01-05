@@ -4,6 +4,30 @@
   box-sizing: border-box; /*  com isso ele mantém o width, e qualquer preenchimento interno */
 }
 
+/* sudo selector */
+/* Root é o que vai prevalecer, o padrão */
+
+:root { 
+  --text-color: white; /* a variável se chama --text-color, poderia ser qualquer outra */
+  --bg-url: url(./assets/bg-mobile.jpg.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: white url(./assets/moon-stars.svg);
+}
+
+/* Todas essas infos consta no material disponibilizado pelo Designer no Figma.  */
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-modile-white.jpg.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: white url(./assets/sun.svg);
+}
+
 body {
   /*
   background-image: url(./assets/bg-mobile.jpg.jpg);
@@ -14,13 +38,13 @@ body {
 
   /* colocamos todas as informações a cima em apenas uma propriedade, é conhecida por short hand ou atalho
   background: image repeat position/size ---- */ 
-  background: url(./assets/bg-mobile.jpg.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
 
 }
 
 body * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #fff;
+  color: var(--text-color); /* var criada com o root e sendo utilizada aqui */
 }
 
 #container {
@@ -29,6 +53,8 @@ body * {
   padding: 0px 24px;
   
 }
+
+/* profile */
 
 #profile {
   text-align: center;
@@ -46,6 +72,42 @@ body * {
   padding: 8px;  
 }
 
+/* switch */
+#switch {
+  position: relative; /* vai relativisar o absolute, vai limitar o absolute nesse espaço */
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  
+  position: absolute; /* sobrepõe camadas */
+  
+  /* propriedades liberadas por causa do absolute */
+  top: 50%;
+  right: 0;
+  z-index: 1; /* escolhe o andar que ele vai ficar */
+  transform: translateY(-50%);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px); /* webkit para funcionar em outros navegadores com o filter*/
+  border-radius: 9999px;
+}
+
+
 /* links */
 ul {
   list-style: none;
@@ -58,7 +120,6 @@ ul {
 }
 
 ul li a {
-  border: 1px solid grey;
   
   display: flex;
   align-items: center;
@@ -67,7 +128,8 @@ ul li a {
   padding: 16px 24px;
   
   /* darkmode */
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 8px;
   
@@ -80,25 +142,42 @@ ul li a {
 
 /* pseudo-selector */
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #FFFFFF;
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
 }
 
 #social-links {
   
   display: flex;
   justify-content: center; /* Alinhar com linha "invisível" no meio */
-  gap: 32px;
 
-  padding: 24px 0;
+  /*gap Se refere ao espaçamento entre os icons + o espaçamento que eles já tem */
+
+  padding: 24px 0; /* superior de 24px e inferior de 0px */
 
   font-size: 24px; /* os icons também são fontes */
 }
 
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  
+}
+
+
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
   padding: 24px;
   gap: 8px;
@@ -109,4 +188,7 @@ footer p {
   font-style: normal;
   font-weight: 400;
 }
+
+/* light-mode */
+
 
