@@ -18,6 +18,8 @@
 &nbsp;
 &nbsp;
 
-# Linguagens utilizadas
+# Tecnologias utilizadas
 
-### HTML - JavaScript - CSS
+ - HTML  
+ - JavaScript 
+ - CSS
